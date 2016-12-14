@@ -12,54 +12,48 @@
 #define bintree_h
 
 #include "movie.h"
-#include <stdio.h>
+#include "movieFactory.h"
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+using namespace std;
 
 class BinTree {
 public:
     BinTree();								// constructor
     BinTree(const BinTree &a);				// copy constructor
     ~BinTree();								// destructor, calls makeEmpty
+    
+    //Functions to change BST
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// make the tree empty so isEmpty returns true
     
     //Overload Operators
-    BinTree& operator=(const BinTree &compare);    //Assignment Operator,assigns one tree to another
     bool operator==(const BinTree &a) const; //Equality Operator, states two trees are exactly the same
     bool operator!=(const BinTree &a) const; //inequality Operator, states two trees aren't the exact same
-   
+    
     //Assister functions
     bool insert(Movie* insertData);
-    bool retrieve(const NodeData &a, NodeData* &b) const; //Get the nodeDara of a given object in the tree if it exists
-   // void displaySideways() const;			// provided by instructor Chen
-  
+    bool retrieve(const Movie* &a, Movie* &b) const; //Get the nodeDara of a given object in the tree if it exists
     //Accessors
-    friend ostream& operator<<(ostream& output, const BinTree &a); //displt the inorder traversal
-    int getHeight (const NodeData &a) const; //Finds the hegiht of a given value in the tree, if height isnt
-    //found it returns 0, else returns height
-    
-    //Conversions
-    void bstreeToArray(NodeData* []);
-    void arrayToBSTree(NodeData* []);
+    friend ostream& operator<<(ostream& output, const BinTree &a); //display the inorder traversal
     
 private:
-    struct Node {
-        NodeData* data;						// pointer to data object
-        Node* left;							// left subtree pointer
-        Node* right;						// right subtree pointer
+    struct Node{
+        Movie* data;						// pointer to data object
+        Node* left;					// left subtree pointer
+        Node* right;					// right subtree pointer
     };
     
     Node* root;								// root of the tree
     
+    
     // utility&helper functions
     void inorderHelper(Node* current) const;
-    void sideways(Node*, int) const; //provided by instructor
-    void deleteTracker(Node*& current);
+    void deleteTracker(Node*& current); //assist in makeempty()
     void copyTree(Node* current, Node*& newPtr) const;
     bool equalCheck(Node* left, Node* right) const;
-    int heightHelper(const NodeData &toFind, Node* current) const;
-    int secondHeightHelper(Node* current) const;
-    int bST2AHelper(Node* current, NodeData* array[]);
-    void Arr2BSTHelper(Node *current, NodeData* copyFrom[], int low, int high);
+    
 };
 
 #endif /* bintree_h */
