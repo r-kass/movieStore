@@ -10,6 +10,8 @@
 #define movie_h
 #include "bintree.h"
 #include <stdio.h>
+#include <string>
+using namespace std;
 
 class Movie
 {

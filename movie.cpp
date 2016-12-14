@@ -7,16 +7,6 @@
 //
 
 #include "movie.h"
-#include "nodedata.h"
 using namespace std;
 
-Movie *Movie::getType(genre){
-    if(genre =='F'){
-        return new Comedy(); //.create();
-    }else if(genre== 'D'){
-        return new Drama();
-    }else if(genre == 'C'){
-        return new Classic();
-    }
-    
-}
+
