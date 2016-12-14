@@ -7,15 +7,55 @@
 //
 
 #include "movie.h"
+#include "bintree.h"
 using namespace std;
 
-Movie::Movie(){
+//********************************Constructor********************************\\
+//Sets al lthe private members to empty strings and 0
+//**************************************************************************\\
+
+Movie::Movie()
+{
     string director="";
     string title="";
     int year=0;
     int stock=0;
     
 }
+
+//********************************Deconstructor********************************\\
+
+Movie::~Movie()
+{
+    //do nothing
+}
+
+//********************************SetData********************************\\
+//Reads in the file and sets the private data members to the appropriate info
+//**************************************************************************\\
+
+void Movie::setData(istream& input){
+    
+    input.get();
+    input.ignore();   //ignore genre we checked already
+    
+    input.get();
+    input>> stock;     //get the stock
+    
+    input.get();
+    getline(input, director, ','); //get the director
+    
+    input.get();
+    getline(input, title, ',');  //get the title
+    
+    input.get();
+    input >> year;       //get the year
+    
+}
+
+//********************************Increment Stock****************************\\
+//Increases the stock # for a certain movie //in classic it can be incremented by an int not just 1
+//**************************************************************************\\
 
 bool Movie::increment(int stockIncrease)
 {
@@ -29,6 +69,10 @@ bool Movie::increment(int stockIncrease)
     }
     return increase;
 }
+
+//********************************Decrement Stock*****************************\\
+//Sdecreases the stock # for a certain movie by 1
+//**************************************************************************\\
 
 bool Movie::decrement()
 {
@@ -44,6 +88,10 @@ bool Movie::decrement()
     }
     return decrease;
 }
+
+//********************************Getter Fxn********************************\\
+//returns stock number from private data
+//**************************************************************************\\
 
 int Movie::getStock()
 {
