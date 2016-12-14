@@ -1,16 +1,16 @@
 //
-//  show.h
+//  Show.h
 //  assignment4_implementation
 //
 //  Created by Ruby Kassala on 12/12/16.
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-#ifndef show_h
-#define show_h
+#ifndef Show_h
+#define Show_h
 #include "transaction.h"
 #include <stdio.h>
-class show: public Transaction {
+class Show: public Transaction {
     
     
     virtual void doTransaction();
@@ -19,4 +19,4 @@ class show: public Transaction {
 };
 
 
-#endif /* show_h */
+#endif /* Show_h */

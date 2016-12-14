@@ -6,14 +6,14 @@
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-#include "history.h"
+#include "History.h"
 
 //virtual method
-bool history::doTransaction(){
+bool History::doTransaction(){
     return true;
 }
 
 //virtual method
-bool history::setData(){
+bool History::setData(){
     return true;
 }

@@ -67,7 +67,10 @@ public:
  
     void insert(int key, item_type *item) {
 
-        int hash = (key % SIZE);             // assign hash
+        if (id > 9999 || id < 0)            // Over size
+            return false;
+        
+        int hash = (key % SIZE);            // assign hash
         
         ItemList *node = new ItemList;      // node to hold object
         node->data = item;                  // pointer to object
@@ -99,7 +102,7 @@ public:
     }
     
 private:
-    static const int SIZE = 50; // twice size of customer base
+    static const int SIZE = 100; //at least 2x the size of base
     
     // makeEmpty
     // Deletes all items in the table

@@ -1,16 +1,16 @@
 //
-//  history.h
+//  History.h
 //  assignment4_implementation
 //
 //  Created by Ruby Kassala on 12/12/16.
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-#ifndef history_h
-#define history_h
+#ifndef History_h
+#define History_h
 #include "transaction.h"
 #include <stdio.h>
-class history: public transaction {
+class History: public transaction {
     
     
     virtual void doTransaction();
@@ -21,4 +21,4 @@ class history: public transaction {
 };
 
 
-#endif /* history_h */
+#endif /* History_h */

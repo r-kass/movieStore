@@ -1,16 +1,16 @@
 //
-//  borrow.h
+//  Borrow.h
 //  assignment4_implementation
 //
 //  Created by Ruby Kassala on 12/12/16.
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-#ifndef borrow_h
-#define borrow_h
+#ifndef Borrow_h
+#define Borrow_h
 #include "transaction.h"
 #include <stdio.h>
-class borrow: public transaction {
+class Borrow: public Transaction {
     
     virtual void doTransaction();
     virtual void setData();
@@ -19,4 +19,4 @@ class borrow: public transaction {
 };
 
 
-#endif /* borrow_h */
+#endif /* Borrow_h */

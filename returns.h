@@ -1,5 +1,5 @@
 //
-//  returns.h
+//  Returns.h
 //  assignment4_implementation
 //
 //  Created by Ruby Kassala on 12/12/16.
@@ -10,9 +10,11 @@
 #define returns_h
 #include "transaction.h"
 #include <stdio.h>
-class returns: public transaction {
+using namespace std;
+
+class Returns: public Transaction {
     
-    
+public:
     virtual void doTransaction();
     virtual void setData();
     void display();
@@ -20,4 +22,4 @@ class returns: public transaction {
 };
 
 
-#endif /* returns_h */
+#endif /* Returns_h */

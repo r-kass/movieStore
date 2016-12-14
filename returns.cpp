@@ -1,19 +1,19 @@
 //
-//  returns.cpp
+//  Returns.cpp
 //  assignment4_implementation
 //
 //  Created by Ruby Kassala on 12/12/16.
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-#include "returns.h"
+#include "Returns.h"
 
 //virtual method
-bool returns::doTransaction(){
+bool Returns::doTransaction(){
     return true;
 }
 
 //virtual method
-bool returns::setData(){
+bool Returns::setData(){
     return true;
 }
