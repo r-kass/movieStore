@@ -10,24 +10,25 @@
 #define classic_h
 #include "movie.h"
 #include <stdio.h>
+#include <iomanip>
 
 class Classic : public Movie{
 public:
     Classic();
     ~Classic();
+     static const char GENRE ='C'; //genre set to classic
     
     virtual void setData(istream&); //set movie data
     virtual void display() const; //display movie data
     virtual bool operator==(const Classic&) const;
     virtual bool operator<(const Classic&) const;
-    virtual Movie* create(); //create new classic movie object
+ //   virtual MovieFactory* create(); //create new classic movie object
     virtual void displayHeader() const; //header for classic movie
     
 private:
-    const string GENRE; //genre set to classic
+   
     int month;
-    string actorFirst;
-    string actorLast;
+    string actorName;
     
 };
 
