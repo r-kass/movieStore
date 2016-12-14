@@ -15,35 +15,31 @@ using namespace std;
 
 class Movie
 {
+   
 /*
 private:
     string title;
     char genre;
     
-protected:
-    string director;
-    int year;
-    int stock;
-   // string title;
     string media= "DVD";  //current data type is only DVD for now
 
 public:
-    static Movie getType(char genre);
-    //bool increment;
-    //bool decrement;
-    virtual bool operator<(const Movie&) const;
-    virtual bool operator ==(const Movie&) const;
+ 
     void setData();
     virtual void display() const;
     bool borrowMovie();
     bool returnMovie();
 */
-public:
-    virtual bool operator < (const Movie*) const;
-    virtual bool operator == (const Movie*) const;
     
+public:
+    bool increment(int stockIncrease);
+    bool decrement();
+    virtual int getStock();
+    virtual bool operator < (const Movie*) const =0;
+    virtual bool operator == (const Movie*) const =0;
     
 protected:
+    Movie();
     string director;
     int year;
     int stock;

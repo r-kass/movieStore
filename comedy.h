@@ -16,16 +16,14 @@ class Comedy : public Movie{
 public:
     Comedy();
     ~Comedy();
+    static const char GENRE= 'F'; //genre set to comedy
 
-    
     virtual void setData(istream&); //set movie data
     virtual void display() const; //display movie data
-    virtual bool operator==(const Comedy&) const;
-    virtual bool operator<(const Comedy&) const;
-   // virtual MovieFactory* create(); //create new comedymovie object
+    virtual bool operator==(const Movie* otherMovie) const;
+    virtual bool operator<(const Movie* otherMovie) const;
     virtual void displayHeader() const; //header for comedy movie
 
-    static const char GENRE= 'F'; //genre set to comedy
 private:
    
 };

@@ -11,7 +11,8 @@
 #include "movie.h"
 #include <stdio.h>
 
-class Drama : public Movie{
+class Drama : public Movie
+{
 public:
     Drama();
     ~Drama();
@@ -23,11 +24,11 @@ protected:
     virtual void setData(istream&); //set movie data
     virtual void display() const; //display movie data
     
-    virtual Movie* create(); //create new drama movie object
     virtual void displayHeader() const; //header for drama movie
    */
 private:
     int stock;
-    };
+
+};
 
 #endif /* drama_h */
