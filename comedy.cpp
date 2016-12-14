@@ -7,3 +7,8 @@
 //
 
 #include "comedy.h"
+
+MovieFactory* Comedy::create()
+{
+    return new Comedy();
+}

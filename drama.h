@@ -15,16 +15,17 @@ class Drama : public Movie{
 public:
     Drama();
     ~Drama();
-    
+    static const char GENRE='D'; //genre set to comedy
+
+    /*
     virtual void setData(istream&); //set movie data
     virtual void display() const; //display movie data
     virtual bool operator==(const Drama&) const;
     virtual bool operator<(const Drama&) const;
     virtual Movie* create(); //create new drama movie object
     virtual void displayHeader() const; //header for drama movie
-    
+   */
 private:
-    const string GENRE; //genre set to comedy
-};
+    };
 
 #endif /* drama_h */
