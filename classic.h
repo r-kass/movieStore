@@ -22,11 +22,9 @@ public:
     virtual void display() const; //display movie data
     virtual bool operator==(const Classic&) const;
     virtual bool operator<(const Classic&) const;
- //   virtual MovieFactory* create(); //create new classic movie object
     virtual void displayHeader() const; //header for classic movie
     
 private:
-   
     int month;
     string actorName;
     

@@ -11,21 +11,24 @@
 #include "movie.h"
 #include <stdio.h>
 
-class Drama : public Movie{
+class Drama : public Movie
+{
 public:
     Drama();
     ~Drama();
     static const char GENRE='D'; //genre set to comedy
-
+protected:
+    virtual bool operator==(const Movie*) const;
+    virtual bool operator<(const Movie*) const;
     /*
     virtual void setData(istream&); //set movie data
     virtual void display() const; //display movie data
-    virtual bool operator==(const Drama&) const;
-    virtual bool operator<(const Drama&) const;
-    virtual Movie* create(); //create new drama movie object
+    
     virtual void displayHeader() const; //header for drama movie
    */
 private:
-    };
+    int stock;
+
+};
 
 #endif /* drama_h */
