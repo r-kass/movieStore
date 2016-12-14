@@ -1,24 +1,34 @@
-//
-//  History.h
-//  assignment4_implementation
-//
-//  Created by Ruby Kassala on 12/12/16.
-//  Copyright © 2016 Ruby Kassala. All rights reserved.
-//
+/**
+ File: History.h
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ History is a subclass of Transaction. This class will have the basic functions
+ to modify and display a History Object; this class will process the transaction
+ as a History object specifically.
+ **/
 
-#ifndef History_h
-#define History_h
+#ifndef History_H
+#define History_H
+#include <iostream>
 #include "transaction.h"
-#include <stdio.h>
-class History: public transaction {
-    
-    
-    virtual void doTransaction();
-    virtual void setData();
 
+using namespace std;
+
+class Customer;
+class History : public Transaction {
     
+public:
+    History();
+    History(const History&);
+    virtual ~History();
     
+    //data members inherited from Transaction
+    
+    virtual bool setData(string, Movie*, Customer*);
+    virtual void display() const; //display movie and transaction types
+    virtual Transaction* create(); //Create History object
 };
 
-
-#endif /* History_h */
+#endif

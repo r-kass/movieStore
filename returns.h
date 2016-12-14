@@ -1,25 +1,34 @@
-//
-//  Returns.h
-//  assignment4_implementation
-//
-//  Created by Ruby Kassala on 12/12/16.
-//  Copyright © 2016 Ruby Kassala. All rights reserved.
-//
+/**
+ File: Returns.h
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ Returns is a subclass of Transaction. This class will have the basic functions
+ to modify and display a Returns Object; this class will process the transaction
+ as a Returns object specifically.
+ **/
 
-#ifndef returns_h
-#define returns_h
+#ifndef Returns_H
+#define Returns_H
+#include <iostream>
 #include "transaction.h"
-#include <stdio.h>
+
 using namespace std;
 
-class Returns: public Transaction {
+class Customer;
+class Returns : public Transaction {
     
 public:
-    virtual void doTransaction();
-    virtual void setData();
-    void display();
+    Returns();
+    Returns(const Returns&);
+    virtual ~Returns();
     
+    //data members inherited from Transaction
+    
+    virtual bool setData(string, Movie*);
+    virtual void display() const; //display movie and transaction types
+    virtual Transaction* create(); //Create Returns object
 };
 
-
-#endif /* Returns_h */
+#endif

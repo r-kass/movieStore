@@ -1,88 +1,94 @@
-//
-//  Transaction.cpp
-//  assignment4_implementation
-//
-//  Created by Ruby Kassala on 12/12/16.
-//  Copyright © 2016 Ruby Kassala. All rights reserved.
-//
-
-#include "Transaction.h"
+/**
+ File: transaction.cpp
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ This class will have the basic functions to modify and display a Transaction.
+ This class is the parent class for Return,Borrow, Inventory and History.
+ **/
 
 #include "transaction.h"
 
-//-----------------------------------------------------------------------------
-// Transaction
-// default constructor: initialize data members to default values
+
+//**************************** Constructors ********************************\\
+//**************************************************************************\\
+// Default constructor:  No parameters, assigns to default values
+//**************************************************************************\\
+
 Transaction::Transaction()
-:theItem(NULL), mediaType(""), transactiontype("Transaction")
+:theItem(NULL), mediaType(""), typeTrans("Transaction")
 {}
 
-//-----------------------------------------------------------------------------
-// Transaction
-// copy constructor: takes a transaction object as its parameter. Creates a
-// deep copy.
-Transaction::Transaction(const Transaction& rhs)
-{
-    transactiontype = rhs.transactiontype;
-    mediaType = rhs.mediaType;
-    theItem = rhs.theItem;
+
+//**************************************************************************\\
+// copy constructor that creates a deep copy of a Transaction object
+//**************************************************************************\\
+
+Transaction::Transaction(const Transaction& newTransaction){
+    typeTrans = newTransaction.typeTrans;
+    mediaType = newTransaction.mediaType;
+    theItem = newTransaction.theItem;
 }
 
-//-----------------------------------------------------------------------------
-// ~Transaction
-// deconstructor: used to properly delete strings
-Transaction::~Transaction()
-{}
+//**************************************************************************\\
+// destructor, deletes item if it exists
+//**************************************************************************\\
 
-//-----------------------------------------------------------------------------
-// setData
-// takes a string, VideoStoreItem and customer as parameters. Sets the media
-// and item and return true to signal stored transaction
-bool Transaction::setData(string media, Movie* newItem,
-                          Customer* theCustomer)
-{
-    mediaType = media;
-    theItem = newItem;
-    return true; //return true to indicate stored transaction
-}
+//Transaction::~Transaction()
+//{}
 
-//--------------------------------------------------------------
-//-----------------------------------------------------------------------------
-// display
-// display the mediaType and transactionType
-void Transaction::display() const
-{
-    cout << mediaType << " " << transactiontype << " ";
-}
+//**************************************************************************\\
+// create, returns a new Transaction object
+//**************************************************************************\\
 
-//-----------------------------------------------------------------------------
-// create
-// return a new transaction object
-Transaction* Transaction::create()
-{
+Transaction* Transaction::create(){
     return new Transaction();
 }
 
-//-----------------------------------------------------------------------------
-// getMediaType
-// return the media type
-string Transaction::getMediaTye()
-{
+
+//**************************************************************************\\
+// setData, takes a string, Movie*, and Customer* as its parameters.
+//**************************************************************************\\
+
+bool Transaction::setData(string media, Movie* newItem,
+                          Customer* theCustomer){
+    mediaType = media;
+    theItem = newItem;
+    return true; //indicates stored transaction
+}
+
+//**************************************************************************\\
+// display, displays the movieType and typeTrans
+//**************************************************************************\\
+
+void Transaction::display() const{
+    cout << mediaType << " " << typeTrans << " ";
+}
+
+
+//**************************************************************************\\
+// getMediaType, returns the media type
+//**************************************************************************\\
+
+string Transaction::getMediaType(){
     return mediaType;
 }
 
-//-----------------------------------------------------------------------------
-// getTransType
-// return the TransTyepe
-string Transaction::getTransType()
-{
-    return transactiontype;
+
+//**************************************************************************\\
+// getTransType, returns the media type
+//**************************************************************************\\
+
+string Transaction::getTransType(){
+    return typeTrans;
 }
 
-//-----------------------------------------------------------------------------
-// getItem
-// return theItem
-Movie* Transaction::getItem() const
-{
+
+//**************************************************************************\\
+// getItem, returns the current item
+//**************************************************************************\\
+
+Movie* Transaction::getItem() const{
     return theItem;
 }

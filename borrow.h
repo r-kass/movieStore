@@ -1,22 +1,34 @@
-//
-//  Borrow.h
-//  assignment4_implementation
-//
-//  Created by Ruby Kassala on 12/12/16.
-//  Copyright © 2016 Ruby Kassala. All rights reserved.
-//
+/**
+ File: borrow.h
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ Borrow is a subclass of Transaction. This class will have the basic functions
+ to modify and display a Borrow Object; this class will process the transaction 
+ as a Borrow object specifically.
+ **/
 
-#ifndef Borrow_h
-#define Borrow_h
+#ifndef BORROW_H
+#define BORROW_H
+#include <iostream>
 #include "transaction.h"
-#include <stdio.h>
-class Borrow: public Transaction {
+
+using namespace std;
+
+class Customer;
+class Borrow : public Transaction {
     
-    virtual void doTransaction();
-    virtual void setData();
-    void display();
+public:
+    Borrow();
+    Borrow(const Borrow&);
+    virtual ~Borrow();
     
+    //data members inherited from Transaction
+    
+    virtual bool setData(string, Movie*);
+    virtual void display() const; //display movie and transaction types
+    virtual Transaction* create(); //Create Borrow object
 };
 
-
-#endif /* Borrow_h */
+#endif

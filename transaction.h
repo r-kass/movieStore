@@ -1,10 +1,12 @@
-//
-//  Transaction.h
-//  assignment4_implementation
-//
-//  Created by Ruby Kassala on 12/12/16.
-//  Copyright © 2016 Ruby Kassala. All rights reserved.
-//
+/**
+ File: transaction.h
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ This class will have the basic functions to modify and display a Transaction. 
+ This class is the parent class for Return,Borrow, Inventory and History.
+ **/
 
 #ifndef Transaction_h
 #define Transaction_h
@@ -26,19 +28,19 @@ public:
     Transaction();
     Transaction(const Transaction&);
     virtual ~Transaction();
-    //set data for moie and media type
-    virtual bool setData(string, Movie*, Customer*);
-    virtual void display() const; //display mediatype and transactiontype
-    virtual Transaction* create(); //create new transaction object
     
-    string getMediaTye(); //Get type of media
-    string getTransType(); //default transType is transaction
-    VideoStoreItem* getItem() const; //Pointer to VideoStoreItem
+    virtual bool setData(string, Movie*, Customer*);
+    virtual void display() const;      //display mediatype and transactiontype
+    virtual Transaction* create();     //create new transaction object
+    
+    string getMediaType();
+    string getTransType();
+//    VideoStoreItem* getItem() const;
     
 protected:
-    string transactiontype;
+    string typeTrans;
     string mediaType;
-    VideoStoreItem* theItem;
+    Movie* theItem;
 };
 #endif
 

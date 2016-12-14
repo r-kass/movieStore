@@ -1,3 +1,5 @@
+
+
 //
 //  Customer.hpp
 //  assignment4_implementation
@@ -6,20 +8,22 @@
 //  Copyright © 2016 Ruby Kassala. All rights reserved.
 //
 
-
-
-#include <stdio.h>
 #ifndef Customer_h
 #define Customer_h
 
-//#include "movie.h"
+#include <stdio.h>
+
+
+#include "movie.h"
 #include "BinTree.h"
 #include "transaction.h"
 #include <stdio.h>
+#include <string>
 #include <iostream>
-//include <string>
+#include "movie.h"
+#include <fstream>
+#include <sstream>
 #include <vector>
-//include <list>
 
 using namespace std;
 
@@ -30,17 +34,12 @@ public:
     // constructors
     Customer();
     ~Customer();
-  //  Customer(istream &stream);
-
-    
-    
-    // functions
     
     const vector<Transaction *> getHistory() const;
 
     int getID() const;
     void setCustomer(int cid);
-    void displayCustomer();
+    void displayHistory();
     
     const string &getFirstName() const;
     void setFirstName(const string & fname);
@@ -48,13 +47,18 @@ public:
     const string &getLastName() const;
     void setLastName(const string & lname);
     
-    
-    //add to transaction
     void addTransaction(Transaction Trans);
 //    void borrowMedia(Media *media);
 //    bool returnMedia(Media *media);
     
 private:
+    struct Customer {				// Structure: linked list for the customer's history
+        Customer* next;				// Next transaction made by the customer
+        char transaction;					// Borrow or Return
+        Movie* info;						// Pointer to the movie
+    };
+    
+    Customer* head;
     int idNumber;
     string firstName;
     string lastName;
