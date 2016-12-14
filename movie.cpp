@@ -7,9 +7,45 @@
 //
 
 #include "movie.h"
-#include "nodedata.h"
 using namespace std;
 
-class Movie{
+Movie::Movie(){
+    string director="";
+    string title="";
+    int year=0;
+    int stock=0;
     
-};
+}
+
+bool Movie::increment(int stockIncrease)
+{
+    bool increase;
+    if(stockIncrease <=0)
+    {
+        return false;
+    }else{
+        stock+=stockIncrease;
+        increase =true;
+    }
+    return increase;
+}
+
+bool Movie::decrement()
+{
+    bool decrease;
+    if(stock <=0)
+    {
+        return false;
+    }
+    else
+    {
+        stock--;
+        decrease =true;
+    }
+    return decrease;
+}
+
+int Movie::getStock()
+{
+    return stock;
+}

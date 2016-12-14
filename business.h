@@ -8,29 +8,33 @@
 
 #ifndef business_h
 #define business_h
+
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
 #include "movie.h"
 #include "bintree.h"
 #include "comedy.h"
 #include "classic.h"
 #include "drama.h"
+#include "movieFactory.h"
 #include "hashtable.h"
-#include <stdio.h>
-#include <iostream>
 
 class Business{
 public:
-    Business();
-    ~Business();
+    Business(); //empty
+    ~Business(); //empty
     void buildMovies(istream& input);
     void buildCustomers(istream& input);
     void processTransactions(istream& input);
-    //void display(); //not listed in her example but maybe good to display all movies?
+  //void display(); //not listed in her example but maybe good to display all movies?
     
 private:
     HashTable* allCustomers;
     Transaction* currentTrans;
-    BinTree* allComedies;
-    BinTree* allDramas;
-    BinTree* allClassics;
+    
+    BinTree allComedies;
+    BinTree allDramas;
+    BinTree allClassics;
 };
 #endif /* business_h */
