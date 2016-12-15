@@ -1,4 +1,3 @@
-
 //
 //  business.hpp
 //  Lab4
@@ -15,9 +14,9 @@
 #include <fstream>
 #include "movie.h"
 #include "bintree.h"
-//#include "comedy.h"
-//#include "classic.h"
-//#include "drama.h"
+#include "comedy.h"
+#include "classic.h"
+#include "drama.h"
 #include "movieFactory.h"
 #include "hashtable.h"
 #include "customer.h"
@@ -28,7 +27,6 @@ public:
     ~Business(); //empty
     void buildMovies(istream& input);
     void buildCustomer(istream& input);
-
     void processTransactions(istream& input);
   //void display(); //not listed in her example but maybe good to display all movies?
     
