@@ -18,13 +18,13 @@ public:
     Drama(const string& info);
     ~Drama();
     static const char GENRE='D'; //genre set to comedy
-    virtual string display() const; //display movie data
+    virtual void display() const; //display movie data
     virtual void displayHeader() const; //header for drama movie
+    bool equalTo(const Movie*) const;
+    bool greaterThan(const Movie*) const;
 
 protected:
-    virtual bool equalTo(const Movie*) const;
-    virtual bool greaterThan(const Movie*) const;
-
+    
 };
 
 #endif /* drama_h */

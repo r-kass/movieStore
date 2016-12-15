@@ -9,9 +9,11 @@
 #include "business.h"
 #include <iostream>
 #include <stdio.h>
+
 #include <fstream>
 #include "customer.h"
 #include <iomanip>
+
 
 using namespace std;
 
@@ -100,6 +102,10 @@ void Business::buildCustomer(istream& input) {
  //   cout << b.getHistory();
 //}
 void Business::display()
+
+
+
+
 {
     cout << endl;
     cout << "______________________________________________________________________" << endl;

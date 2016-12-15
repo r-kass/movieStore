@@ -3,7 +3,6 @@
 //main.cpp
 // Lab4: Creates a movie store where there are 3 types of movies (comedy/classic/Drama), customers and transactions that checks out and checks back in movies.
 // Read in the three files: customer, movies and transaction files and prcoess accordingly.//
-//
 
 #include <iostream>
 #include <string>
@@ -25,7 +24,7 @@ int main(){
     
     Business store;
     store.buildMovies(movieFile);
-    store.buildCustomers(customerFile);
+   // store.buildCustomers(customerFile);
     store.processTransactions(commandsFile);
     return 0;
 }

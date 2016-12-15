@@ -1,13 +1,17 @@
 
-// -----------------------Hastable.h---------------------------------
-// Assignment4
-// -------------------------------------------------------------------------------
-// Purpose: Due to template implementation Templatized Hastable class has holds
-// implementations in .h file. Serves as a data structure to hold customers
-// -------------------------------------------------------------------------------
-// uses chain model hashing, duplicate customer is not allowed
+/**
+ File: hashtable.h
+ Author: Ruby Kassala and Ashley Nguyen
+ Date Last Modified: 2016.12.14
+ 
+ Description:
+ Due to template implementation Templatized HashTable class has holds
+ implementations in .h file. Serves as a data structure to hold customers.
+ This class uses uses chain model hashing; duplicate customer is not allowed.
+ 
+ **/
 
-#ifndef hashtable_h
+
 #define hashtable_h
 
 #include <stdio.h>
@@ -17,6 +21,7 @@
 #include <fstream>
 #include <sstream>
 #include "customer.h"
+
 using namespace std;
 
 template <class item_type>
@@ -24,21 +29,28 @@ template <class item_type>
 class HashTable {
     
 public:
-    
-    // Default constructor
-    // Calls buildTable() creates an empty hastable
+    //**************************** Constructors ********************************\\
+    //**************************************************************************\\
+    // Default constructor:  Calls buildTable() to create an empty hastable
+    //**************************************************************************\\
+
     HashTable() {
         buildTable();
     }
     
-    // BinTree default constructor
-    //Calls makeEmpty() function. destructs Hashtable
+    //**************************************************************************\\
+    // Destructor:  Calls makeEmpty() function. destructs Hashtable
+    //**************************************************************************\\
+    
     ~HashTable(){
         makeEmpty();
     }
     
-    // find
-    // Returns specified items, returns null if not found
+    //**************************** Constructors ********************************\\
+    //**************************************************************************\\
+    // find: Returns specified items, returns null if not found
+    //**************************************************************************\\
+    
     item_type *find(int key) const {
         
         int hash = (key % SIZE);                // assign hash
@@ -61,13 +73,16 @@ public:
         }
         return NULL;                           // not found
     }
-    
-    // Insert
-    // Adds the item in hastable, Checks for duplicates
+    //**************************************************************************\\
+    // Insert:  Adds the item in hastable, Checks for duplicates
+    //**************************************************************************\\
  
-    void insert(int key, item_type *item) {
+    bool insert(int key, item_type *item) {
 
-        int hash = (key % SIZE);             // assign hash
+        if (key > 9999 || key < 0)            // Over size
+            return false;
+        
+        int hash = (key % SIZE);            // assign hash
         
         ItemList *node = new ItemList;      // node to hold object
         node->data = item;                  // pointer to object
@@ -99,10 +114,25 @@ public:
     }
     
 private:
-    static const int SIZE = 50; // twice size of customer base
+    static const int SIZE = 100; //at least 2x the size of base
     
-    // makeEmpty
-    // Deletes all items in the table
+    //**************************************************************************\\
+    // ItemList:  to keep track of items
+    //**************************************************************************\\
+    
+    struct ItemList  {
+        
+        item_type * data;   // holds object
+        int key;            // holds key
+        ItemList * next;
+    };
+    
+    ItemList *table[SIZE];   // hastable array
+
+    
+    //**************************************************************************\\
+    // makeEmpty:  Deletes all items in the table
+    //**************************************************************************\\
 
     void makeEmpty() {
         
@@ -121,23 +151,14 @@ private:
             }
         }
     }
-    // buildTable
-    // helper method to create empty table
-    
+    //**************************************************************************\\
+    // buildTable:  helper method to create empty table
+    //**************************************************************************\\
+
     void buildTable() {
         for (int i = 0; i < SIZE; ++i) {
             table[i] = NULL;
         }
     }
-    
-    struct ItemList  {
-        
-        item_type * data;   // holds object
-        int key;            // holds key
-        ItemList * next;
-    };
-    
-    ItemList *table[SIZE];   // hastable array
-};
+   };
 
-#endif /* hashtable_h */

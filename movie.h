@@ -19,20 +19,24 @@ class Movie
 public:
      Movie();
     virtual ~Movie();
-    bool increment(int stockIncrease);
-    bool decrement();
-    virtual int getStock();
-    virtual string display() const =0;
-    virtual bool equalTo(const Movie*) const =0;
-    virtual bool greaterThan(const Movie*) const =0;
+    static const char mediaType ='D'; //stands for DVD
+   // static const char GENRE;
+    bool increment(int stockIncrease);   //increase stock
+    bool decrement();                   //decrease stock
+    virtual int getStock();             //return stock amount
+    virtual void display() const =0;      //print out movies
+    virtual void displayHeader() const =0;
+    virtual bool equalTo(const Movie*) const =0;     //check equivalent movies
+    virtual bool greaterThan(const Movie*) const =0;   //for alphabetizing
+    
     
 protected:
-    void setData(const string& input);
-    char genre;
+    void setData(const string& input);    //setting data
     string director;
     int year;
     int stock;
     string title;
+    char genre;
 };
 
 #endif /* movie_hpp */
