@@ -89,6 +89,6 @@ string Transaction::getTransType(){
 // getItem, returns the current item
 //**************************************************************************\\
 
-Movie* Transaction::getItem() const{
-    return theItem;
-}
+//Movie* Transaction::getItem() const{
+//    return theItem;
+//}

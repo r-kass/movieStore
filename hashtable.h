@@ -77,9 +77,9 @@ public:
     // Insert:  Adds the item in hastable, Checks for duplicates
     //**************************************************************************\\
  
-    void insert(int key, item_type *item) {
+    bool insert(int key, item_type *item) {
 
-        if (id > 9999 || id < 0)            // Over size
+        if (key > 9999 || key < 0)            // Over size
             return false;
         
         int hash = (key % SIZE);            // assign hash
@@ -162,4 +162,3 @@ private:
     }
    };
 
-#endif /* hashtable_h */

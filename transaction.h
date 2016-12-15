@@ -8,9 +8,6 @@
  This class is the parent class for Return,Borrow, Inventory and History.
  **/
 
-#ifndef Transaction_h
-#define Transaction_h
-
 #include <stdio.h>
 
 #ifndef TRANSACTION_H
@@ -35,13 +32,11 @@ public:
     
     string getMediaType();
     string getTransType();
-//    VideoStoreItem* getItem() const;
     
 protected:
     string typeTrans;
     string mediaType;
     Movie* theItem;
 };
-#endif
 
 #endif /* Transaction_h */

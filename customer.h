@@ -33,13 +33,15 @@ class Customer {
 public:
     // constructors
     Customer();
+    Customer(const Customer&);
+    Customer(int idNum, string fName, string lName);
     ~Customer();
-    
+
     const vector<Transaction *> getHistory() const;
 
     int getID() const;
     void setCustomer(int cid);
-    void displayHistory();
+  //  void getHistory();
     
     const string &getFirstName() const;
     void setFirstName(const string & fname);
@@ -48,17 +50,16 @@ public:
     void setLastName(const string & lname);
     
     void addTransaction(Transaction Trans);
-//    void borrowMedia(Media *media);
-//    bool returnMedia(Media *media);
+
     
 private:
-    struct Customer {				// Structure: linked list for the customer's history
-        Customer* next;				// Next transaction made by the customer
+  /*  struct CustomerHist {				// Structure: linked list for the customer's history
+        CustomerHist* next;				// Next transaction made by the customer
         char transaction;					// Borrow or Return
         Movie* info;						// Pointer to the movie
     };
     
-    Customer* head;
+    CustomerHist* head;*/
     int idNumber;
     string firstName;
     string lastName;

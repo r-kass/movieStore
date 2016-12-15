@@ -19,13 +19,14 @@
 #include "drama.h"
 #include "movieFactory.h"
 #include "hashtable.h"
+#include "customer.h"
 
 class Business{
 public:
     Business(); //empty
     ~Business(); //empty
     void buildMovies(istream& input);
-    void buildCustomers(istream& input);
+    void buildCustomer(istream& input);
     void processTransactions(istream& input);
   //void display(); //not listed in her example but maybe good to display all movies?
     

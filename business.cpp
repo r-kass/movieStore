@@ -10,19 +10,17 @@
 #include <iostream>
 #include <stdio.h>
 #include <ifstream>
+#include "customer.h"
 
-Business::Business()
-{
+Business::Business(){
  //nothing to do unless we wnat to include business name
 }
 
-Business::~Business()
-{
+//Business::~Business() {
  //nothing to do here
-}
+//}
 
-void Business::buildMovies(istream& input)
-{
+void Business::buildMovies(istream& input){
     string entireLine;
 
     while(!input.eof())
@@ -48,6 +46,36 @@ void Business::buildMovies(istream& input)
         
     }
 }
+
+void Business::buildCustomer(istream& input) {
+    
+    while (!input.eof()){
+        
+        //read in and store customer id
+        string temp;
+        int id;
+        getline(input, temp, ' ');
+        stringstream(temp) >> id;
+        
+        //read in and store last name of customer
+        string lName;
+        getline(input, lName, ' ');
+        
+        // read in and store first name of customer
+        string fName;
+        getline(input, fName);
+        
+        //create new customer object
+        Customer*  person = new Customer(id, lName, fName);
+        
+        //insert into hash table and make sure it was valid
+        //if not delete person
+        bool worked = allCustomers.insertCustomer(id, person);
+        if (!worked)
+            delete person;
+    }
+}
+
         /*
         //get the genre type for movie
         if(genre == 'F'| genre =='D'| genre=='C'){
@@ -62,13 +90,12 @@ void Business::buildMovies(istream& input)
         }
      */  
 
-void Business::buildCustomers(istream& input)
-{
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
-}
+//void Business::buildCustomers(istream& input){
+//    Customer b = *new Customer();
+ //   cout << b.getFirstName();
+ //   cout << b.getLastName();
+ //   cout << b.getHistory();
+//}
 
 void Business::processTransactions(istream& input)
 {
