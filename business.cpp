@@ -10,6 +10,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <ifstream>
+using namespace std;
 
 Business::Business()
 {
@@ -25,7 +26,7 @@ void Business::buildMovies(istream& input)
 {
     string entireLine;
 
-    while(!input.eof())
+    for(;;)
     {
         getline(input, entireLine);
         
@@ -43,31 +44,11 @@ void Business::buildMovies(istream& input)
             case Drama::GENRE:
                 allDramas.insert(newMovie);
             default:
+                cout >> "error in entry, not a valid movie";
                 break;
         }
-        
     }
-}
-        /*
-        //get the genre type for movie
-        if(genre == 'F'| genre =='D'| genre=='C'){
-            MovieFactory* moviePtr=factory.create(genre);
-            moviePtr=0;
-        }else{
-            input.ignore(256,'\n');
-        }
-        if(moviePtr !=NULL){
-            moviePtr ->setData(input);
-            insert(moviePtr, amount);
-        }
-     */  
 
-void Business::buildCustomers(istream& input)
-{
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
 }
 
 void Business::processTransactions(istream& input)

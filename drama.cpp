@@ -7,8 +7,13 @@
 //
 
 #include "drama.h"
+#include <iomanip>
 
-bool Drama::operator==(const Movie* otherMovie) const
+Drama::Drama(const string& info){
+    setData(info);
+}
+
+bool Drama::equalTo(const Movie* otherMovie) const
 {
     bool isEqual =false;
     const Drama* other =(const Drama*) otherMovie;
@@ -19,7 +24,7 @@ bool Drama::operator==(const Movie* otherMovie) const
     return isEqual;
 }
 
-bool Drama::operator<(const Movie* otherMovie) const
+bool Drama::greaterThan(const Movie* otherMovie) const
 {
     bool greater =false;
     const Drama* other =(const Drama*) otherMovie;
@@ -27,5 +32,9 @@ bool Drama::operator<(const Movie* otherMovie) const
     {
         greater =true;
     }
-    return true;
+    return greater;
+}
+
+string Drama::display() const{
+    
 }
