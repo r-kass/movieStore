@@ -8,20 +8,23 @@
 
 #ifndef comedy_h
 #define comedy_h
-#include <stdio.h>
 #include "movie.h"
+#include <stdio.h>
+#include <string>
+#include <iostream>
+using namespace std;
 
-//
-class Comedy : public Movie{
+class Comedy : public Movie
+{
 public:
-    Comedy();
+    Comedy(const string& info);
     ~Comedy();
     static const char GENRE= 'F'; //genre set to comedy
 
     virtual void setData(istream&); //set movie data
-    virtual void display() const; //display movie data
-    virtual bool operator==(const Movie* otherMovie) const;
-    virtual bool operator<(const Movie* otherMovie) const;
+    virtual string display() const; //display movie data
+    bool equalTo(const Movie* otherMovie) const;
+    bool greaterThan(const Movie* otherMovie) const;
     virtual void displayHeader() const; //header for comedy movie
 
 private:

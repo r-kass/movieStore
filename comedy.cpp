@@ -7,8 +7,14 @@
 //
 
 #include "comedy.h"
+#include "movie.h"
 
-bool Comedy::operator==(const Movie* otherMovie) const
+Comedy::Comedy(const string& info)
+{
+    setData(info);
+}
+
+bool Comedy::equalTo(const Movie* otherMovie) const
 {
     bool isEqual =false;
     const Comedy* other =(const Comedy*) otherMovie;
@@ -19,7 +25,7 @@ bool Comedy::operator==(const Movie* otherMovie) const
     return isEqual;
 }
 
-bool Comedy::operator<(const Movie& otherMovie) const
+bool Comedy::greaterThan(<#const Movie *otherMovie#>) const
 {
     bool greater =false;
     const Comedy* other =(const Comedy*) otherMovie;
@@ -27,5 +33,5 @@ bool Comedy::operator<(const Movie& otherMovie) const
     {
         greater =true;
     }
-    return true;
+    return greater;
 }

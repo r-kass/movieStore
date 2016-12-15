@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <ifstream>
 #include "customer.h"
+using namespace std;
 
 Business::Business(){
  //nothing to do unless we wnat to include business name
@@ -23,7 +24,7 @@ Business::Business(){
 void Business::buildMovies(istream& input){
     string entireLine;
 
-    while(!input.eof())
+    for(;;)
     {
         getline(input, entireLine);
         
@@ -41,9 +42,9 @@ void Business::buildMovies(istream& input){
             case Drama::GENRE:
                 allDramas.insert(newMovie);
             default:
+              cout << "error in entry, not a valid movie";
                 break;
         }
-        
     }
 }
 
@@ -96,6 +97,7 @@ void Business::buildCustomer(istream& input) {
  //   cout << b.getLastName();
  //   cout << b.getHistory();
 //}
+
 
 void Business::processTransactions(istream& input)
 {
