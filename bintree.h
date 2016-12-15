@@ -11,8 +11,8 @@
 #ifndef bintree_h
 #define bintree_h
 
-#include "movie.h"
 #include "movieFactory.h"
+#include "movie.h"
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
@@ -20,13 +20,13 @@ using namespace std;
 
 class BinTree {
 public:
-    BinTree();								// constructor
-    BinTree(const BinTree &a);				// copy constructor
-    ~BinTree();								// destructor, calls makeEmpty
+    BinTree();							// constructor
+    BinTree(const BinTree &a);			// copy constructor
+    ~BinTree();							// destructor, calls makeEmpty
     
     //Functions to change BST
-    bool isEmpty() const;					// true if tree is empty, otherwise false
-    void makeEmpty();						// make the tree empty so isEmpty returns true
+    bool isEmpty() const;				// true if tree is empty, otherwise false
+    void makeEmpty();					// make the tree empty so isEmpty returns true
     
     //Overload Operators
     bool operator==(const BinTree &a) const; //Equality Operator, states two trees are exactly the same
@@ -34,9 +34,8 @@ public:
     
     //Assister functions
     bool insert(Movie* insertData);
-    bool retrieve(const Movie* &a, Movie* &b) const; //Get the nodeDara of a given object in the tree if it exists
-    //Accessors
-    friend ostream& operator<<(ostream& output, const BinTree &a); //display the inorder traversal
+    void displayMovies();
+    Movie* retrieve(Movie* &a); //Get the nodeDara of a given object in the tree if it exists
     
 private:
     struct Node{
@@ -47,11 +46,10 @@ private:
     
     Node* root;								// root of the tree
     
-    
     // utility&helper functions
+    Movie* retrieveHelper(Node*& node, Movie* find_data);
     void inorderHelper(Node* current) const;
     void deleteTracker(Node*& current); //assist in makeempty()
-    void copyTree(Node* current, Node*& newPtr) const;
     bool equalCheck(Node* left, Node* right) const;
     
 };
