@@ -27,10 +27,13 @@ public:
     Business(); //empty
     ~Business(); //empty
     void buildMovies(istream& input);
-    void buildCustomer(istream& input);
 
-    void processTransactions(istream& input);
-  //void display(); //not listed in her example but maybe good to display all movies?
+    //void buildCustomer(istream& input);
+
+   // void processTransactions(istream& input);
+    void display(); //not listed in her example but maybe good to display all movies?
+
+
     
 private:
     HashTable* allCustomers;

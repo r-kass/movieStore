@@ -169,7 +169,7 @@ bool BinTree::insert(Movie* insertData)
                 insert =false;
                 return insert;
             }
-            else if (*newMovie->data < *current->data)
+            else if (newMovie->data < current->data)
             {
                 if (current->left== NULL) // at leaf, insert left
                 {
@@ -182,7 +182,7 @@ bool BinTree::insert(Movie* insertData)
                     //to the while loop and retest the above scenarios
                 }
             }
-            else if(*newMovie->data > *current->data)
+            else if(newMovie->data > current->data)
             {
                 if(current->right == NULL)
                 {
@@ -212,8 +212,29 @@ bool BinTree::insert(Movie* insertData)
 //random junk info at initially
 //**************************************************************************\\
 
-bool BinTree::retrieve(MovieFactory* moviePtr, int amountIn) const
+Movie* BinTree::retrieve(Movie* &lookFor){
+     return retrieveHelper(root, lookFor);
+}
+
+Movie* BinTree::retrieveHelper(Node*&  passedIn, Movie* lookFor)
 {
+    if(passedIn==NULL)
+    {
+        return NULL;
+    }
+    
+    if(passedIn->data->equalTo(lookFor))
+    {
+        return passedIn->data;
+    }else if(passedIn->data->greaterThan(lookFor)){  // Do binary search
+        return retrieveHelper(passedIn->left, lookFor); //greater than
+    }else{
+        return retrieveHelper(passedIn->right, lookFor); //less than
+}
+
+    }
+    /*
+     
     bool found=false; //declares a boolean
     
     if (isEmpty()) {  //if it's empty then found =false, return
@@ -256,19 +277,15 @@ bool BinTree::retrieve(MovieFactory* moviePtr, int amountIn) const
     }
     return found;
 }
+*/
+
+void BinTree::displayMovies()
+{
+    inorderHelper(root);
+    cout << endl;
+}
 
 //****************************Accessors******************************//
-//**************************************************************************\\
-//Output overload to display the tree using inorder Traversal.
-//Precondition: NodeData class will display it's own data
-//**************************************************************************\\
-
-ostream& operator<<(ostream& output, const BinTree &a)
-{
-    a.inorderHelper(a.root);
-    output << endl;
-    return output;
-}
 
 //*************************Ostream helper********************************************\\
 //Output overload helper to display the tree using inorder Traversal.
@@ -281,7 +298,7 @@ void BinTree::inorderHelper(Node* current) const
     if (current != NULL)  // traverse and print data
     {
         inorderHelper(current->left);
-        cout << *current->data << " ";
+        cout << current->data;
         inorderHelper(current->right);
     }
 }

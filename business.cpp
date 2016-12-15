@@ -9,8 +9,12 @@
 #include "business.h"
 #include <iostream>
 #include <stdio.h>
-#include <ifstream>
+
+#include <fstream>
 #include "customer.h"
+#include <iomanip>
+
+
 using namespace std;
 
 Business::Business(){
@@ -97,12 +101,33 @@ void Business::buildCustomer(istream& input) {
  //   cout << b.getLastName();
  //   cout << b.getHistory();
 //}
+void Business::display()
 
 
-void Business::processTransactions(istream& input)
+
+
 {
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
-    //*********************************************************
+    cout << endl;
+    cout << "______________________________________________________________________" << endl;
+    cout << "--------------------------[ DISPLAYING MOVIES ]---------------------" << endl;
+    cout << endl;
+    cout << "                              COMEDIES                              " << endl;
+    cout << endl;
+    cout << " Title                           Year Director          Stock" << endl;
+    allComedies.displayMovies();
+    cout << "_____________________________________________________________________________" << endl;
+    cout << endl;
+    cout << "                                   DRAMAS                            " << endl;
+    cout << endl;
+    cout << " Director             Title                    Year     Stock" << endl;
+    allDramas.displayMovies();
+    cout << "_____________________________________________________________________________" << endl;
+    cout << endl;
+    cout << "                                 CLASSICS                                   " << endl;
+    cout << endl;
+    cout << " Month  Year  Major actor        Title                  Director       Stock" << endl;
+    allClassics.displayMovies();
+    cout << "_____________________________________________________________________________" << endl;
+    cout << endl << endl;
 }
+
