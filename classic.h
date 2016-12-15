@@ -18,14 +18,15 @@ class Classic : public Movie
 public:
     Classic(const string& info);
     ~Classic();
+    static const char mediaType ='D';
     static const char GENRE ='C'; //genre set to classic
-    virtual string display() const; //display movie data
-    bool equalTo(const Classic&) const;
-    bool greaterThan(const Classic&) const;
-    virtual void displayHeader() const; //header for classic movie
+    virtual void display() const; //display movie data
+    bool equalTo(const Movie*) const;
+    bool greaterThan(const Movie*) const;
+   // virtual void displayHeader() const; //header for classic movie
     
 protected:
-    void setData(string& data); //set movie data
+    void setData(const string& data); //set movie data
     int month;
     string actorName;
     

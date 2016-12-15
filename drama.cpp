@@ -13,6 +13,10 @@ Drama::Drama(const string& info){
     setData(info);
 }
 
+//********************************equalTo********************************\\
+//Check if the movie is the same movie as one already in tree
+//**************************************************************************\\
+
 bool Drama::equalTo(const Movie* otherMovie) const
 {
     bool isEqual =false;
@@ -23,6 +27,11 @@ bool Drama::equalTo(const Movie* otherMovie) const
     }
     return isEqual;
 }
+
+
+//********************************greaterThan********************************\\
+//If the movie is greater than another for displaying it alphabetically
+//**************************************************************************\\
 
 bool Drama::greaterThan(const Movie* otherMovie) const
 {
@@ -35,6 +44,12 @@ bool Drama::greaterThan(const Movie* otherMovie) const
     return greater;
 }
 
-string Drama::display() const{
-    
+//********************************Display Header********************************\\
+//prints out the movies
+//**************************************************************************\\
+
+void Drama::displayHeader() const{ //header for classic movie
+    cout << GENRE << endl;
+    cout << "DVD    DVD TITLE              DIRECTOR         YEAR" << endl;
 }
+

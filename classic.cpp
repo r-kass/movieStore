@@ -9,17 +9,28 @@
 #include "classic.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
+
+//********************************Constructor********************************\\
+//Calls setdata function to read in details
+//**************************************************************************\\
 
 Classic::Classic(const string& info)
 {
     setData(info);
 }
 
+//********************************Deconstructor********************************\\
+
 Classic::~Classic()
 {
  //nothing to do here
 }
+
+//********************************Set Data********************************\\
+//SReads in the string like an file and save them to appropriate data members
+//**************************************************************************\\
 
 void Classic::setData(const string& input)
 {
@@ -48,10 +59,10 @@ void Classic::setData(const string& input)
     movieDetails >> year;             // Add month}
 }
 
-string Classic::display()
-{
-    cout << title << setw(10) << director <<setw(10) << actorName << setw(10) << month << setw(5) << year << endl;
-}
+
+//********************************equalTo********************************\\
+//Check if the movie is the same movie as one already in tree
+//**************************************************************************\\
 
 bool Classic::equalTo(const Movie* otherMovie) const
 {
@@ -64,6 +75,10 @@ bool Classic::equalTo(const Movie* otherMovie) const
     return isEqual;
 }
 
+//********************************greaterThan********************************\\
+//If the movie is greater than another for displaying it alphabetically
+//**************************************************************************\\
+
 bool Classic::greaterThan(const Movie* otherMovie) const
 {
     bool greater =false;
@@ -75,7 +90,18 @@ bool Classic::greaterThan(const Movie* otherMovie) const
     return greater;
 }
 
-/*
-virtual MovieFactory* create(); //create new classic movie object
-virtual void displayHeader() const; //header for classic movie
-*/
+void Classic::display() const
+{
+    cout << title << setw(10) << director <<setw(10) << actorName << setw(10) << month << setw(5) << year << endl;
+}
+
+//********************************Display Header********************************\\
+//prints out the movies
+//**************************************************************************\\
+
+void Classic::displayHeader() const{ //header for classic movie
+    cout << GENRE << endl;
+    cout << "DVD    DVD TITLE              DIRECTOR         YEAR" << endl;
+}
+
+
