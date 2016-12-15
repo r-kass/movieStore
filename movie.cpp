@@ -7,8 +7,7 @@
 //
 
 #include "movie.h"
-#include "bintree.h"
-using namespace std;
+
 
 //********************************Constructor********************************\\
 //Sets al lthe private members to empty strings and 0
@@ -16,11 +15,11 @@ using namespace std;
 
 Movie::Movie()
 {
-    string director="";
-    string title="";
-    int year=0;
-    int stock=0;
-    
+    director="";
+    title="";
+    year=0;
+    stock=0;
+    genre=' ';
 }
 
 //********************************Deconstructor********************************\\
@@ -34,22 +33,23 @@ Movie::~Movie()
 //Reads in the file and sets the private data members to the appropriate info
 //**************************************************************************\\
 
-void Movie::setData(istream& input){
+void Movie::setData(const string& input)
+{
+    stringstream movieDetails;
+    movieDetails << input;   //put the infile sentence into the                             movie details to be read
+    string temp;
+   
+    getline(movieDetails, temp, ','); //get the  genre type
+    genre= temp[0];
+   
+    getline(movieDetails, temp, ',');     //get the stock
+    stringstream(temp) >> stock;
     
-    input.get();
-    input.ignore();   //ignore genre we checked already
-    
-    input.get();
-    input>> stock;     //get the stock
-    
-    input.get();
-    getline(input, director, ','); //get the director
-    
-    input.get();
-    getline(input, title, ',');  //get the title
-    
-    input.get();
-    input >> year;       //get the year
+    getline(movieDetails, director, ',');   //get the director
+    getline(movieDetails, title, ',');     //get the title
+  
+    getline(movieDetails, temp, ',');
+    stringstream(temp) >> year;   //get the year
     
 }
 

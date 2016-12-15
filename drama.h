@@ -10,24 +10,20 @@
 #define drama_h
 #include "movie.h"
 #include <stdio.h>
+#include <string>
 
 class Drama : public Movie
 {
 public:
-    Drama();
+    Drama(const string& info);
     ~Drama();
     static const char GENRE='D'; //genre set to comedy
-protected:
-    virtual bool operator==(const Movie*) const;
-    virtual bool operator<(const Movie*) const;
-    /*
-    virtual void setData(istream&); //set movie data
-    virtual void display() const; //display movie data
-    
+    virtual string display() const; //display movie data
     virtual void displayHeader() const; //header for drama movie
-   */
-private:
-    int stock;
+
+protected:
+    virtual bool equalTo(const Movie*) const;
+    virtual bool greaterThan(const Movie*) const;
 
 };
 

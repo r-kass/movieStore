@@ -7,33 +7,28 @@
 
 #ifndef movie_h
 #define movie_h
-#include "bintree.h"
+#include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <string>
+#include <sstream>
 using namespace std;
 
 class Movie
 {
-   
-/*
- public:
-    virtual void display() const;
-    bool borrowMovie();
-    bool returnMovie();
-*/
-    
 public:
      Movie();
-    ~Movie();
-    virtual void setData(istream& input);
+    virtual ~Movie();
     bool increment(int stockIncrease);
     bool decrement();
     virtual int getStock();
-    virtual bool operator < (const Movie*) const =0;
-    virtual bool operator == (const Movie*) const =0;
+    virtual string display() const =0;
+    virtual bool equalTo(const Movie*) const =0;
+    virtual bool greaterThan(const Movie*) const =0;
     
 protected:
-   
+    void setData(const string& input);
+    char genre;
     string director;
     int year;
     int stock;
