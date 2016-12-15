@@ -23,7 +23,7 @@ public:
     virtual void display() const; //display movie data
     bool equalTo(const Movie*) const;
     bool greaterThan(const Movie*) const;
-   // virtual void displayHeader() const; //header for classic movie
+    virtual void displayHeader() const; //header for classic movie
     
 protected:
     void setData(const string& data); //set movie data

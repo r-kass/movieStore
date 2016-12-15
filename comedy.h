@@ -19,10 +19,9 @@ class Comedy : public Movie
 public:
     Comedy(const string& info);
     ~Comedy();
+    static const char mediaType ='D';
     static const char GENRE= 'F'; //genre set to comedy
-
-    virtual void setData(istream&); //set movie data
-    virtual string display() const; //display movie data
+    
     bool equalTo(const Movie* otherMovie) const;
     bool greaterThan(const Movie* otherMovie) const;
     virtual void displayHeader() const; //header for comedy movie
