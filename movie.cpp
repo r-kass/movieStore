@@ -5,7 +5,7 @@
 //  Created by Nguyen Nguyen on 11/30/16.
 //  Copyright © 2016 Nguyen Nguyen. All rights reserved.
 //
-
+#include <iomanip>
 #include "movie.h"
 
 
@@ -19,7 +19,7 @@ Movie::Movie()
     title="";
     year=0;
     stock=0;
-    genre=' ';
+    genre= ' ';
 }
 
 //********************************Deconstructor********************************\\
@@ -97,3 +97,23 @@ int Movie::getStock()
 {
     return stock;
 }
+
+//********************************Display********************************\\
+//prints out the movies
+//**************************************************************************\\
+
+void Movie::display() const
+{
+    cout << title << setw(10) << director <<setw(10) << year << endl;
+ 
+}
+
+//********************************Display Header********************************\\
+//prints out the movies
+//**************************************************************************\\
+
+void Movie::displayHeader() const{ //header for classic movie
+    cout << GENRE << endl;
+    cout << "DVD    DVD TITLE              DIRECTOR         YEAR" << endl;
+}
+
